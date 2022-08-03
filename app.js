@@ -1,6 +1,4 @@
-// import functions and grab DOM element
 const newPollEl = document.getElementById('new-poll');
-const startPollButton = document.getElementById('start-poll-button');
 const currentPollContainer = document.getElementById('current-poll-container');
 const optionAaddButton = document.getElementById('option-a-add-button');
 const optionASubtractButton = document.getElementById('option-a-subtract-button');
