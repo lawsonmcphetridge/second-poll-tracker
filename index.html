@@ -12,17 +12,71 @@
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <title>Web App</title>
+    <title>Poll tracker</title>
 </head>
 
 <body>
     <header>
         <img src="/assets/html_css_js.png">
-        <h1>Web App</h1>
+        <h1>Poll tracker</h1>
     </header>
 
     <main>
+        <h2>This is the current poll</h2>
 
+        <section id="current-poll-container"></section>
+
+        <br>
+
+
+        <form id="new-poll">
+
+
+            <label>
+                question:
+                <input name="question">
+            </label>
+
+            <label>
+                optionA:
+                <input name="option-A">
+            </label>
+
+            <label>
+                optionB:
+                <input name="option-B">
+            </label>
+
+
+            <button id="start-poll-button">start poll</button>
+        </form>
+
+
+
+        <br>
+
+        <button id="option-a-add-button">add</button>
+        <button id="option-a-subtract-button">subtract</button>
+
+
+        <br>
+
+        <button id="option-b-add-button">add2</button>
+        <button id="option-b-subtract-button">subtract2</button>
+
+
+
+        <br>
+        <button id="finish-poll-button">finish poll</button>
+
+
+
+        <section id="past-poll">
+            <h2>past polls</h2>
+            <div id="past-poll-container">
+
+            </div>
+        </section>
     </main>
 
     <footer>&copy;2022 Software Developer</footer>

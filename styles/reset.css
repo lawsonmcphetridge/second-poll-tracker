@@ -36,3 +36,14 @@ time, mark, audio, video {
 ol, ul {
 	list-style: none;
 }
+
+button {
+	margin: 25px;
+	height: 40px;
+	width: 70px;
+	background-color: aqua;
+	color: black;
+	border-radius: 10px;
+	border: solid 2px black;
+	cursor: pointer;
+}
