@@ -7,6 +7,7 @@ const optionASubtractButton = document.getElementById('option-a-subtract-button'
 const optionBAddButton = document.getElementById('option-b-add-button');
 const optionBSubtractButton = document.getElementById('option-b-subtract-button');
 const finishPollButton = document.getElementById('finish-poll-button');
+const pastPollContainer = document.getElementById('past-poll-container');
 
 // let state
 let pastPolls = [];
@@ -20,33 +21,37 @@ newPollEl.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(newPollEl);
   const userQuestion = data.get('question');
-  const userOptionA = data.get('optionA');
-  const userOptionB = data.get('optionB');
+  const userOptionA = data.get('option-A');
+  const userOptionB = data.get('option-B');
   question = userQuestion;
   optionA = userOptionA;
   optionB = userOptionB;
-  
   displayCurrentPoll();
 });
 
 optionAaddButton.addEventListener('click', () => {
-
+  displayCurrentPoll();
+  votesA++;
 })
 
 optionASubtractButton.addEventListener('click', () => {
-    
+  displayCurrentPoll();
+  votesA--;
 });
 
 optionBAddButton.addEventListener('click', () => {
-    
+  displayCurrentPoll();
+  votesB++;
 });
 
 optionBSubtractButton.addEventListener('click', () => {
-   
+  displayCurrentPoll();
+  votesB--;
 });
 
 finishPollButton.addEventListener('click', () => {
-  
+  currentPollContainer.textContent = '';
+  displayPastPolls();
 })
 
 
@@ -73,9 +78,31 @@ function renderPoll(question, optionA, optionB, votesA, votesB) {
 
 function displayCurrentPoll() {
   newPollEl.reset();
+  currentPollContainer.textContent = '';
   const currentPollData = renderPoll(question, optionA, optionB, votesA, votesB);
   currentPollContainer.append(currentPollData);
+
 }
+
+
+function displayPastPolls() {
+  const pastPoll = {
+    question: question,
+    optionA: optionA,
+    optionB: optionB,
+    votesA: votesA,
+    votesB: votesB,
+  };
+
+  pastPolls.push(pastPoll);
+  for (let poll of pastPolls) {
+    const currentPastPoll = renderPoll(poll.question, poll.optionA, poll.optionB, poll.votesA, poll.votesB);
+    pastPollContainer.append(currentPastPoll);
+  }
+}
+
+
+
 
 
   // get user input
