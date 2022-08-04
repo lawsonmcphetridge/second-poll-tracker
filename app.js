@@ -49,6 +49,8 @@ optionBSubtractButton.addEventListener('click', () => {
 
 finishPollButton.addEventListener('click', () => {
     currentPollContainer.textContent = '';
+    votesA = '';
+    votesB = '';
     displayPastPolls();
 });
 
@@ -78,6 +80,7 @@ function displayCurrentPoll() {
 }
 
 function displayPastPolls() {
+    pastPollContainer.textContent = '';
     const pastPoll = {
         question: question,
         optionA: optionA,
@@ -98,6 +101,8 @@ function displayPastPolls() {
         pastPollContainer.append(currentPastPoll);
     }
 }
+
+
 
 // get user input
 // use user input to update state
